@@ -16,7 +16,9 @@
 # ==============================================================================
 
 # TensorFlow and tf.keras
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 from tensorflow import keras
 
 # Helper libraries
@@ -41,8 +43,8 @@ flags.DEFINE_string("job_name", None, "job name: worker or ps")
 
 # You can safely tune these variables
 BATCH_SIZE = 32
-EPOCHS = 5
-INTERVAL_STEPS = 100
+EPOCHS = 15
+INTERVAL_STEPS = 3
 # ----------------
 
 FLAGS = flags.FLAGS

@@ -19,7 +19,9 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 from tensorflow.python.framework import constant_op
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import ops
