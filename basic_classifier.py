@@ -16,7 +16,9 @@
 # ==============================================================================
 
 # TensorFlow and tf.keras
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 from tensorflow import keras
 
 # Helper libraries
