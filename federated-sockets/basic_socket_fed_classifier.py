@@ -16,7 +16,9 @@
 # ==============================================================================
 
 # TensorFlow and tf.keras
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 from tensorflow import keras
 
 # Custom federated hook
@@ -37,9 +39,9 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ''
 
 # You can safely tune these variables
 BATCH_SIZE = 32
-EPOCHS = 5
-INTERVAL_STEPS = 100 # Steps between averages
-WAIT_TIME = 30 # How many seconds to wait for new workers to connect
+EPOCHS = 15
+INTERVAL_STEPS = 128 # Steps between averages
+WAIT_TIME = 15 # How many seconds to wait for new workers to connect
 # -----------------
 
 # Set these IPs to your own, can leave as localhost for local testing
@@ -125,6 +127,7 @@ with tf.name_scope('train'):
 SESS_CONFIG = tf.ConfigProto(allow_soft_placement=True, log_device_placement=False)
 
 N_BATCHES = int(train_images.shape[0] / BATCH_SIZE)
+print(N_BATCHES)
 LAST_STEP = int(N_BATCHES * EPOCHS)
 
 # Logger hook to keep track of the training

@@ -1,3 +1,7 @@
+# key file
+*.key
+*.pem
+
 # log file
 logs_dir
 

@@ -19,7 +19,9 @@ import socket
 import time
 import ssl
 import hmac
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 import numpy as np
 from config import SSL_CONF as SC
 from config import SEND_RECEIVE_CONF as SRC
